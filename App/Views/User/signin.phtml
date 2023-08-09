@@ -1,0 +1,53 @@
+<main role="main">
+    <div class="container marketing">
+        <hr class="featurette-divider">
+        <h2 class="display-4 text-center">CADASTRAR-SE</h2>
+        <hr class="featurette-divider">
+        <?php
+        if (isset($_SESSION['msg'])) {
+            echo $_SESSION['msg'];
+            unset($_SESSION['msg']);
+        }
+
+        if (!isset($this->dados['formReturn'])) {
+            $nome = $email = "";
+        } else {
+            extract($this->dados['formReturn']);
+        }
+        ?>
+        <form name="forContato" method="post" action="/register_user">
+            <div class="mb-3">
+                <label for="inputName" class="form-label">Nome</label>
+                <input type="text" name="nome" class="form-control" id="inputName" aria-describedby="nameHelp" value="<?= $nome; ?>" required>
+                <div id="nameHelp" class="form-text">Digite seu nome</div>
+            </div>
+            <div class="invalid-feedback">
+                Por favor digite o nome.
+            </div>
+            <div class="mb-3">
+                <label for="InputEmail1" class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" value="<?= $email; ?>" required>
+                <div id="emailHelp" class="form-text">Digite seu email.</div>
+            </div>
+            <div class="invalid-feedback">
+                Por favor digite um email válido.
+            </div>
+            <div class="mb-3">
+                <label for="InputPassword1" class="form-label">Senha</label>
+                <input type="password" name="senha" class="form-control" id="InputPassword1" required>
+            </div>
+            <div class="invalid-feedback">
+                Digite uma senha
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="Check1" required>
+                <label class="form-check-label" for="Check1">Concordo com os termos de uso</label>
+            </div>
+            <div class="invalid-feedback">
+                Você deve aceitar para poder se cadastrar.
+            </div>
+            <button type="submit" name="formAddContato" value="Cadastrar" class="btn btn-primary">Cadastrar</button>
+        </form>
+        <hr class="featurette-divider">
+    </div>
+</main>

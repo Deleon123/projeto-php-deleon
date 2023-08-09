@@ -1,0 +1,89 @@
+
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="Css/index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <title>Delicious Food at Home</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/Img/favicon/apple-touch-icon.png">
+    <link rel="icon" href="img/icon/favicon.png"/>
+    <link rel="manifest" href="/Img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/Img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/Img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="/Img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body style="background-color: #f5f5f5;">
+    <nav class="navbar navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">Página inicial</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a href="/products" class="nav-link text-white">Produtos</a>
+                    </li>
+                </ul>
+                <?php
+                if (isset($_SESSION['sId'])) { ?>
+                    <div class="aling-self-end">
+                        <ul class="navbar-nav">
+                        <?php if($_SESSION['sIs_admin'] == 'admin'){
+                        echo "<li class=\"nav-item\">
+                                <a href=\"register_product\" class=\"nav-link text-white\">(Admin) Registrar produto</a>
+                            </li>";
+                        }?>
+                            <li class="nav-item">
+                                <a href="/logout" class="nav-link text-white">Sair</a>
+                            </li>
+                            <ul>
+                    </div>
+                <?php  } else { ?>
+                    <div class="aling-self-end">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="/signin" class="nav-link text-white">Quero Me Cadastrar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/authenticator" class="nav-link text-white">Entrar</a>
+                            </li>
+                    </div>
+                <?php   } ?>
+            </div>
+        </div>
+    </nav>
+    <main style="background-color: #f5f5f5;">
+        <?= $this->content(); ?>
+    </main>
+
+    <footer class="border-top fixed-bottom mt-3 text-muted bg-primary">
+        <div class="container">
+            <div class="row py-3">
+                <div class="col-12 col-md-4 text-center text-md-left text-white">
+                    &copy; Delicious Food at Home
+                </div>
+                <div class="col-12 col-md-4 text-center">
+                    <a href="politicas" class="text-decoration-none text-white">Política de Privacidade</a><br>
+                </div>
+                <div class="col-12 col-md-4 text-center text-md-right text-white">
+                    <a href="#" class="text-decoration-none text-white">Contato Pelo Site</a><br>
+                    E-mail: <a class="text-decoration-none text-white" href="mailto:deleoncurso@gmail.com">deleoncurso@gmail.com</a><br>
+                    Telefone: <a class="text-decoration-none text-white" href="phone:28999056518">(28) 99905-6518</a>
+                </div>
+            </div>
+        </div>
+        <footer>
+
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+</body>
+
+</html>
